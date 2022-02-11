@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class MyOrderScreen extends StatelessWidget {
   const MyOrderScreen({Key? key}) : super(key: key);

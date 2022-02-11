@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({Key? key}) : super(key: key);

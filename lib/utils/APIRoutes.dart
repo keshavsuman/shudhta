@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class APIRoutes {
   static final String login = '/api/user/auth/login';

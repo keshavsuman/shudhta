@@ -1,4 +1,4 @@
-library ecommerce;
+library shudhta;
 
 import 'dart:convert';
 import 'dart:ui';
@@ -19,7 +19,7 @@ part 'models/orderModel.dart';
 part 'models/productModel.dart';
 part 'models/cartModel.dart';
 
-part 'components/BottomNavigationBar.dart';
+// part 'components/BottomNavigationBar.dart';
 
 part 'screens/home/homeScreen.dart';
 part 'screens/home/widgets/categoryList.dart';
@@ -29,6 +29,7 @@ part 'screens/home/widgets/advertisements.dart';
 part 'screens/home/homeController.dart';
 part 'screens/checkout/checkout.dart';
 part 'screens/wishlist/wishlistScreen.dart';
+part 'screens/categories/categories.dart';
 
 part 'screens/profile/profileScreen.dart';
 part 'screens/productDetails/productDetails.dart';

@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class CategoriesList extends StatelessWidget {
   const CategoriesList({Key? key}) : super(key: key);

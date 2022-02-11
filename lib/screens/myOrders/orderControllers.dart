@@ -1,3 +1,3 @@
-part of ecommerce;
+part of shudhta;
 
 class OrderController extends GetxController {}

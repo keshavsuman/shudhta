@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class Advertisements extends StatelessWidget {
   const Advertisements({Key? key}) : super(key: key);

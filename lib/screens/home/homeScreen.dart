@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);

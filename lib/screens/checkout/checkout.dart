@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class Checkout extends StatelessWidget {
   @override

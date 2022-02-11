@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({Key? key}) : super(key: key);

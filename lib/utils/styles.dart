@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 const TextStyle _labelStyle = const TextStyle(
   fontSize: 20.0,

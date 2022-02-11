@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class OrderModel {
   String id;

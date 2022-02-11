@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 const String ROOT_URL = "http://localhost:8000/api/";
 const Color PRIMARY_COLOR = Color(0xFF7694C6);

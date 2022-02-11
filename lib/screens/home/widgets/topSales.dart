@@ -1,4 +1,4 @@
-part of ecommerce;
+part of shudhta;
 
 class TopSales extends StatelessWidget {
   const TopSales({Key? key}) : super(key: key);
