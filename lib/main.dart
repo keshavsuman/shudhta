@@ -1,68 +1,69 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_app/common_widget/AppBarWidget.dart';
-import 'package:flutter_ecommerce_app/common_widget/BottomNavBarWidget.dart';
-import 'package:flutter_ecommerce_app/common_widget/DrawerWidget.dart';
-import 'package:flutter_ecommerce_app/screens/HomeScreen.dart';
-import 'package:flutter_ecommerce_app/screens/ProductDetailScreen.dart';
-import 'package:flutter_ecommerce_app/screens/ShoppingCartScreen.dart';
-import 'package:flutter_ecommerce_app/screens/WishListScreen.dart';
-import 'package:flutter_ecommerce_app/components/AppSignIn.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'ecommerce.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyHomePage(),
+    return GetMaterialApp(
+      home: Shudhta(),
       theme: ThemeData(
-          fontFamily: 'Roboto',
-          primaryColor: Colors.white,
-          primaryColorDark: Colors.white,
-          backgroundColor: Colors.white),
+        fontFamily: 'Roboto',
+        primaryColor: PRIMARY_COLOR,
+        // primaryColorDark: Colors.white,
+        // backgroundColor: Colors.white
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-int currentIndex = 0;
+class Shudhta extends StatefulWidget {
+  const Shudhta({Key? key}) : super(key: key);
 
-void navigateToScreens(int index) {
-  currentIndex = index;
-}
-
-class MyHomePage extends StatefulWidget {
   @override
-  _MyHomePageNewState createState() => _MyHomePageNewState();
+  _ShudhtaState createState() => _ShudhtaState();
 }
 
-class _MyHomePageNewState extends State<MyHomePage> {
-  final List<Widget> viewContainer = [
-    HomeScreen(),
-    WishListScreen(),
-    ShoppingCartScreen(),
-    HomeScreen()
-  ];
+class _ShudhtaState extends State<Shudhta> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: appBarWidget(context),
-        drawer: DrawerWidget(),
-        body: IndexedStack(
-          index: currentIndex,
-          children: viewContainer,
-        ),
-        bottomNavigationBar: BottomNavBarWidget(),
+    return SafeArea(
+        child: Scaffold(
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   height: 50,
+      //   backgroundColor: PRIMARY_COLOR,
+      //   items: [
+      //     Icon(Icons.home, size: 30),
+      //     Icon(Icons.search, size: 30),
+      //     Icon(Icons.shopping_cart, size: 30),
+      //     Icon(Icons.person, size: 30),
+      //   ],
+      //   index: _currentIndex,
+      //   onTap: (index) {
+      //     setState(() {
+      //       _currentIndex = index;
+      //     });
+      //   },
+      // ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: [
+          HomeScreen(),
+          WishlistScreen(),
+          ShoppingCart(),
+          ProfileScreen()
+        ],
       ),
-    );
+    ));
   }
 }
-
-//https://api.evaly.com.bd/core/public/products/?page=1&limit=12&category=facial-cleansing-brushes-84365a5ee
-
-//https://api.evaly.com.bd/core/public/products/?page=1&limit=12&category=bags-luggage-966bc8aac
