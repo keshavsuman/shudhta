@@ -1,13 +1,17 @@
 part of shudhta;
 
 class CategoriesList extends StatelessWidget {
-  const CategoriesList({Key? key}) : super(key: key);
+  final List<Categories> categories;
+  const CategoriesList({Key? key, required this.categories}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180,
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      height: 200,
+      padding: EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 10,
+      ),
       child: Column(
         children: [
           Row(
@@ -15,19 +19,27 @@ class CategoriesList extends StatelessWidget {
             children: [
               Text(
                 'Category List',
-                style: _labelStyle,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              Text('View All')
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/allCategories');
+                  },
+                  child: Text('View all'))
             ],
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 12,
+                itemCount: categories.length,
                 // padding: EdgeInsets.symmetric(horizontal: 10),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
                       width: 150,
+                      clipBehavior: Clip.hardEdge,
                       margin: EdgeInsets.all(5.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -44,12 +56,16 @@ class CategoriesList extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Image.network(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZGOqQi_CpitSQDPewVL3Qn2NHVhCkDm73hg&usqp=CAU',
+                              categories[index].imageUrl,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: Text('Category $index'),
+                            child: Text(
+                              categories[index].name,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ],
                       ));

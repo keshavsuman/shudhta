@@ -1,18 +1,29 @@
 part of shudhta;
 
-class AdvertisementModel {
+class Advertisement {
   String id;
-  List<String> banners;
+  String imageUrl;
+  String? title;
 
-  AdvertisementModel({
-    required this.id,
-    required this.banners,
-  });
+  Advertisement({required this.id, required this.imageUrl, this.title});
 
-  factory AdvertisementModel.fromJson(Map<String, dynamic> json) {
-    return AdvertisementModel(
+  factory Advertisement.fromJson(Map<String, dynamic> json) {
+    return Advertisement(
       id: json['_id'],
-      banners: List<String>.from(json['banners'].map((x) => x)),
+      imageUrl: json['image_url'],
+      title: json['name'],
     );
+  }
+
+  static Future<List<Advertisement>> getAdvertisements() async {
+    final Map<String, dynamic> response =
+        await Client.post(APIRoutes.getAdvertisements);
+    if (response['status'] == 200) {
+      return (response['data'] as List)
+          .map((e) => Advertisement.fromJson(e))
+          .toList();
+    } else {
+      return [];
+    }
   }
 }

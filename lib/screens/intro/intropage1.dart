@@ -1,7 +1,7 @@
 part of shudhta;
 
-class NewArrival extends StatelessWidget {
-  const NewArrival({Key? key}) : super(key: key);
+class IntroPage1 extends StatelessWidget {
+  const IntroPage1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,26 +1,25 @@
 part of shudhta;
 
-class ShoppingCart extends StatelessWidget {
+class ShoppingCart extends StatefulWidget {
   const ShoppingCart({Key? key}) : super(key: key);
 
+  @override
+  State<ShoppingCart> createState() => _ShoppingCartState();
+}
+
+class _ShoppingCartState extends State<ShoppingCart> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      appBar: ShudhtaAppBar(
+        title: 'Shopping cart',
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_back_ios),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  Text('Shopping Cart'),
-                ],
-              ),
               Column(
                 children: [
                   ProductTile(),
@@ -31,10 +30,10 @@ class ShoppingCart extends StatelessWidget {
               ),
               OrderSummary(),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: PRIMARY_COLOR),
                   onPressed: () {},
                   child: Container(
                     height: 50,
-                    color: PRIMARY_COLOR,
                     // width: MediaQuery.of(context).size.width * 0.85,
                     child: Center(
                         child: Text(
@@ -53,8 +52,8 @@ class ShoppingCart extends StatelessWidget {
   }
 }
 
-class ProductTile extends StatelessWidget {
-  const ProductTile({Key? key}) : super(key: key);
+class HorizontalProductTile extends StatelessWidget {
+  const HorizontalProductTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,18 +1,18 @@
 part of shudhta;
 
-class OrderModel {
+class Order {
   String id;
   UserModel user;
   List<ProductModel> products;
 
-  OrderModel({
+  Order({
     required this.id,
     required this.user,
     required this.products,
   });
 
-  factory OrderModel.fromJson(Map<String, dynamic> json) {
-    return OrderModel(
+  factory Order.fromJson(Map<String, dynamic> json) {
+    return Order(
       id: json['_id'],
       user: UserModel.fromJson(json['user']),
       products: List<ProductModel>.from(

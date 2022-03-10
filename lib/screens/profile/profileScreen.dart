@@ -7,80 +7,105 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      appBar: ShudhtaAppBar(
+        title: 'My Profile',
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios,
-                    size: 25,
-                  ),
-                  Text(
-                    'Profile',
-                    style: TextStyle(fontSize: 25),
-                  ),
-                  SizedBox()
-                ],
-              ),
-            ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.4,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CircleAvatar(
-                    radius: 70,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Keshav suman',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          Text(
+                            '+91 9602514096',
+                            style: TextStyle(fontSize: 20),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
-                  Text(
-                    'Keshav suman',
-                    style: TextStyle(fontSize: 20),
+                  Divider(),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      children: [
+                        Container(
+                            decoration: BoxDecoration(boxShadow: []),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(Icons.location_on_outlined),
+                                Text('Default Address'),
+                              ],
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Change address'),
+                              Text('Add address')
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
             ),
-            Divider(),
+            // Divider(),
             ProfileItem(
-              leading: Icon(Icons.person),
+              // leading: Icon(Icons.person),
               title: 'Edit profile',
               onTap: () {},
             ),
             ProfileItem(
-              leading: Icon(Icons.location_city),
               title: 'Shopping address',
               onTap: () {},
             ),
             ProfileItem(
-              leading: Icon(Icons.shopping_bag_outlined),
               title: 'My orders',
               onTap: () {},
             ),
             ProfileItem(
-              leading: Icon(Icons.favorite),
               title: 'Wishlist',
               onTap: () {},
             ),
             ProfileItem(
-              leading: Icon(Icons.person),
               title: 'About us',
               onTap: () {},
             ),
             ProfileItem(
-              leading: Icon(Icons.person),
               title: 'Contact us',
               onTap: () {},
             ),
             ProfileItem(
-              leading: Icon(Icons.person),
               title: 'Rate us',
               onTap: () {},
             ),
             ProfileItem(
-              leading: Icon(Icons.person),
               title: 'Logout',
               onTap: () {},
             )
@@ -93,14 +118,11 @@ class ProfileScreen extends StatelessWidget {
 
 class ProfileItem extends StatelessWidget {
   final String title;
-  final Icon leading;
+  final Icon? leading;
   final void Function() onTap;
 
   const ProfileItem(
-      {Key? key,
-      required this.title,
-      required this.leading,
-      required this.onTap})
+      {Key? key, required this.title, this.leading, required this.onTap})
       : super(key: key);
 
   @override
@@ -108,7 +130,7 @@ class ProfileItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 15),
+        margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
         child: Row(
           children: [
             Padding(
@@ -123,6 +145,7 @@ class ProfileItem extends StatelessWidget {
             Icon(
               Icons.arrow_forward_ios,
               size: 15,
+              color: PRIMARY_COLOR,
             ),
             SizedBox(
               width: 15,

@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
         // primaryColorDark: Colors.white,
         // backgroundColor: Colors.white
       ),
+      initialRoute: '/home',
+      onGenerateRoute: ShudhtaRoutes.generateRoute,
       debugShowCheckedModeBanner: false,
     );
   }
